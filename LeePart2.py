@@ -66,7 +66,7 @@ def main():
     fig, ax = plt.subplots(layout='constrained', figsize=(14,6))
 
     # changing the colors to match celeste theming! for extra fun
-    colors = ['royalblue', 'mediumvioletred', 'gold']
+    colors = ['#1f6fbf', '#ba1c56', '#c2a327']
     colorIndex = 0
 
     for side, deaths in deaths.items():

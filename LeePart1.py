@@ -7,8 +7,8 @@ xml.close()
 
 # open html for output
 html = open('celeste.html', 'w')
-# html header
-html.write('<html>\n<body>\n')
+# html header with css style sheet linked
+html.write('<html>\n<head>\n<link rel="stylesheet" href="style.css">\n</head>\n<body>\n<h1>Lee\'s Celeste History!</h1>\n')
 
 # celeste has three game "sides," which determine the difficulty of the level
 # this is a counter so I can write which side is being outputed
@@ -24,6 +24,12 @@ for line in text:
         hasCass = match[1]
         chapName = match[3]
 
+        # change bool to text
+        if hasCass:
+            hasCass = 'Yes!'
+        else:
+            hasCass = 'No...'
+
         # use regex to find the start of each word (2 words max)
         pat = re.compile('([A-Z][a-z]*)([A-Z][a-z]*)*')
         match = pat.findall(chapName)[0]
@@ -35,7 +41,7 @@ for line in text:
             chapName = match[0]      
 
         # write header for each chapter
-        html.write(f'<h1>Chapter {chapNum}: {chapName}</h1>\n')
+        html.write(f'<div>\n<h2>Chapter {chapNum}: {chapName}</h2>\n')
         if chapNum == '8':
             # comment since no stats will be output later
             html.write('This chapter has no gameplay!\n')
@@ -59,11 +65,11 @@ for line in text:
 
             # write a/b/c side subheaders
             if side == 0:
-                html.write(f'<h3>A-Side</h3>\n')
+                html.write(f'<h3 class="a">A-Side</h3>\n')
             elif side == 1:
-                html.write(f'<h3>B-Side</h3>\n')
+                html.write(f'<h3 class="b">B-Side</h3>\n')
             else:
-                html.write(f'<h3>C-Side</h3>\n')
+                html.write(f'<h3 class="c">C-Side</h3>\n')
             
             # write stats to html
             html.write(f'<ul>\n<li>Got Cassette? {hasCass}</li>\n<li># of Strawberries Collected: {strawberries}</li>\n<li># of Deaths: {deaths}</li>\n<li>Total Play Time: {totalMin} minutes, {totalSec} seconds</li>\n</ul>\n')
@@ -73,9 +79,11 @@ for line in text:
                 side += 1
             else: # if we reach c side, return to a side for next chapter
                 side = 0
+                html.write('</div>\n')
 
         else: # skip to a side since there is no b/c
             side = 0
+            html.write('</div>\n')
 
 # closing tags
 html.write('</body>\n</html>')
