@@ -58,7 +58,6 @@ def main():
 
     # Below this point more heavily references the matplot bar chart guide linked here https://matplotlib.org/stable/gallery/lines_bars_and_markers/barchart.html
 
-
     x = np.arange(len(chapters))  # set the label locations based on num of chapters
     width = 0.25  # the width had to be .25 otherwise it broke?
     multiplier = 0
