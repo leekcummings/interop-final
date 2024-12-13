@@ -11,4 +11,4 @@ Using the number of deaths per chapter, I used a grouped bar chart to display th
 ### Part 3: [Commond Line Analysis of Strawberries](LeePart3.py)
 I then looked at the number of strawberries I got based on chapter. A-sides contain most of the strawberries in the game, but each in chapter and side you can earn a Golden Strawberry by completing the chapter deathless. Using regex to get all of the strawberry stats, I printed out the interesting information in the command line, and commented on my best and worst chapters.
 
-This project was completed for CS 214: Data Interoperability
+This project was completed for [CS 214: Data Interoperability](https://simmons.smartcatalogiq.com/en/2024-2025/undergraduate-course-catalog/undergraduate-courses/cs-computer-science/200/cs-214/)
